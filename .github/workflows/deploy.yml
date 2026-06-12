@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  migrate-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,12 +20,23 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore Library/Library.csproj
 
-    - name: Build
-      run: dotnet build Library/Library.csproj --no-restore      run: |
+    - name: Install EF Tools
+      run: dotnet tool install --global dotnet-ef
+
+    - name: Remove old migrations
+      run: rm -rf Library/Migrations
+
+    - name: Generate migrations
+      run: |
+        dotnet ef migrations add Init --context AppDbContext --project Library/Library.csproj
+        dotnet ef migrations add Init --context AppIdentityDbContext --project Library/Library.csproj
+
+    - name: Commit migrations
+      run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
         git add Library/Migrations
-        git diff --staged --quiet || git commit -m "Add SQLite migrations"
+        git diff --staged --quiet || git commit -m "Regenerate SQLite migrations"
         git push
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
