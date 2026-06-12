@@ -1,6 +1,5 @@
 using Library.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data
 {
@@ -18,7 +17,7 @@ namespace Library.Data
                 .CreateScope().ServiceProvider
                 .GetRequiredService<AppIdentityDbContext>();
 
-            context.Database.Migrate();
+            context.Database.EnsureCreated();
 
             UserManager<AppUser> userManager = app.ApplicationServices
                 .CreateScope().ServiceProvider
