@@ -17,7 +17,7 @@ namespace Library.Data
                 .CreateScope().ServiceProvider
                 .GetRequiredService<AppIdentityDbContext>();
 
-            context.Database.EnsureCreated();
+            context.Database.Migrate();
 
             UserManager<AppUser> userManager = app.ApplicationServices
                 .CreateScope().ServiceProvider
