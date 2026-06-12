@@ -10,7 +10,7 @@ namespace Library.Data
                 .CreateScope().ServiceProvider
                 .GetRequiredService<AppDbContext>();
 
-            context.Database.EnsureCreated();
+            context.Database.Migrate();
 
             if (!context.Genres.Any())
             {
