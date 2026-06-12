@@ -78,6 +78,6 @@ app.MapControllerRoute(
 
 // ── Seed Data ────────────────────────────────────────────────────────────────
 SeedData.EnsurePopulated(app);
-SeedIdentityData.EnsurePopulated(app);
+await SeedIdentityData.EnsurePopulated(app);
 
 app.Run();
