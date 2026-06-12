@@ -1,4 +1,4 @@
-﻿using Library.Models;
+using Library.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data
@@ -11,10 +11,7 @@ namespace Library.Data
                 .CreateScope().ServiceProvider
                 .GetRequiredService<AppDbContext>();
 
-            if (context.Database.GetPendingMigrations().Any())
-            {
-                context.Database.Migrate();
-            }
+            context.Database.Migrate();
 
             if (!context.Genres.Any())
             {
