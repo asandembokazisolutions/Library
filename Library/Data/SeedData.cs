@@ -1,5 +1,4 @@
 using Library.Models;
-using Microsoft.EntityFrameworkCore;
 
 namespace Library.Data
 {
@@ -11,7 +10,7 @@ namespace Library.Data
                 .CreateScope().ServiceProvider
                 .GetRequiredService<AppDbContext>();
 
-            context.Database.Migrate();
+            context.Database.EnsureCreated();
 
             if (!context.Genres.Any())
             {
