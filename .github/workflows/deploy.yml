@@ -1,0 +1,33 @@
+name: Deploy to Render
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  migrate-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore Library/Library.csproj
+
+    - name: Install EF Tools
+      run: dotnet tool install --global dotnet-ef
+
+    - name: Build
+      run: dotnet build Library/Library.csproj --no-restore
+
+    - name: Run AppDbContext Migration
+      run: dotnet ef database update --context AppDbContext --project Library/Library.csproj
+
+    - name: Run AppIdentityDbContext Migration
+      run: dotnet ef database update --context AppIdentityDbContext --project Library/Library.csproj
