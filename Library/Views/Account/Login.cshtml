@@ -1,0 +1,60 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Log In";
+}
+
+<div class="auth-card">
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-sign-in-alt me-2"></i>Log In
+        </div>
+        <div class="card-body p-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <form asp-action="Login" asp-controller="Account" method="post">
+                <input type="hidden" asp-for="ReturnUrl" />
+
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input asp-for="UserName" class="form-control"
+                               placeholder="Enter username" />
+                    </div>
+                    <span asp-validation-for="UserName" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input asp-for="Password" class="form-control"
+                               type="password" placeholder="Enter password" />
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <div class="form-check">
+                        <input asp-for="RememberMe" class="form-check-input" />
+                        <label asp-for="RememberMe" class="form-check-label"></label>
+                    </div>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-sign-in-alt me-2"></i>Log In
+                    </button>
+                    <a asp-action="Register" asp-controller="Account"
+                           class="btn btn-outline-secondary">
+                        <i class="fas fa-user-plus me-2"></i>Don't have an account? Register
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

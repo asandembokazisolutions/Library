@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<!-- Hero Banner -->
+<div class="hero-banner">
+    <h1><i class="fas fa-book-open me-3"></i>Library App</h1>
+    <p>Browse our curated collection of books across Fiction, Science, History and more.</p>
+    <a asp-controller="Book" asp-action="Index" class="btn btn-light btn-lg">
+        <i class="fas fa-search me-2"></i>Browse Books
+    </a>
+    @if (!User.Identity!.IsAuthenticated)
+    {
+        <a asp-controller="Account" asp-action="Register"
+               class="btn btn-outline-light btn-lg ms-3">
+            <i class="fas fa-user-plus me-2"></i>Register
+        </a>
+    }
+</div>
+
+<!-- Feature Cards -->
+<div class="row g-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-book me-2"></i>Browse Books
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Search, filter by genre, and sort our full catalogue
+                    of books with live paging.
+                </p>
+                <a asp-controller="Book" asp-action="Index"
+                       class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-1"></i>Go to Books
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-user-plus me-2"></i>Join Us
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Create an account to add and update books in our
+                    catalogue. It's free and takes seconds.
+                </p>
+                @if (!User.Identity!.IsAuthenticated)
+                {
+                    <a asp-controller="Account" asp-action="Register"
+                           class="btn btn-primary">
+                        <i class="fas fa-arrow-right me-1"></i>Register
+                    </a>
+                }
+                else
+                {
+                    <span class="badge bg-success p-2">
+                        <i class="fas fa-check me-1"></i>You're logged in
+                    </span>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-info-circle me-2"></i>About
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    Learn more about this ASP.NET Core MVC project
+                    and the technologies used to build it.
+                </p>
+                <a asp-controller="Home" asp-action="About"
+                       class="btn btn-primary">
+                    <i class="fas fa-arrow-right me-1"></i>Read More
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

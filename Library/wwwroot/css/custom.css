@@ -1,0 +1,283 @@
+﻿/* ── Base ────────────────────────────────────────────────────────────────── */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    padding-top: 0;
+}
+
+/* ── Navbar ──────────────────────────────────────────────────────────────── */
+.navbar {
+    background: linear-gradient(135deg, #1F3864 0%, #2E75B6 100%) !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    padding: 0.75rem 1rem;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #fff !important;
+}
+
+    .navbar-brand:hover {
+        color: #BDD7EE !important;
+    }
+
+.navbar .nav-link {
+    color: rgba(255,255,255,0.85) !important;
+    font-weight: 500;
+    transition: color 0.2s;
+    padding: 0.5rem 0.9rem !important;
+}
+
+    .navbar .nav-link:hover {
+        color: #fff !important;
+        background-color: rgba(255,255,255,0.1);
+        border-radius: 4px;
+    }
+
+.navbar .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border-radius: 8px;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #DEEAF1;
+    color: #1F3864;
+}
+
+/* ── Hero banner (Home page) ─────────────────────────────────────────────── */
+.hero-banner {
+    background: linear-gradient(135deg, #1F3864 0%, #2E75B6 100%);
+    color: #fff;
+    padding: 60px 40px;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(31,56,100,0.3);
+}
+
+    .hero-banner h1 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-banner p {
+        font-size: 1.15rem;
+        color: #BDD7EE;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-banner .btn-light {
+        font-weight: 600;
+        padding: 0.6rem 1.6rem;
+        border-radius: 25px;
+        color: #1F3864;
+    }
+
+/* ── Cards ───────────────────────────────────────────────────────────────── */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+.card-header {
+    background: linear-gradient(135deg, #1F3864, #2E75B6);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 10px 10px 0 0 !important;
+    padding: 0.85rem 1.25rem;
+}
+
+/* ── Page headings ───────────────────────────────────────────────────────── */
+.page-title {
+    background: linear-gradient(135deg, #1F3864, #2E75B6);
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* ── Tables ──────────────────────────────────────────────────────────────── */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+    .table thead.table-dark th {
+        background: linear-gradient(135deg, #1F3864, #2E75B6) !important;
+        color: #fff;
+        font-weight: 600;
+        border: none;
+    }
+
+        .table thead.table-dark th a {
+            color: #BDD7EE !important;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+            .table thead.table-dark th a:hover {
+                color: #fff !important;
+                text-decoration: underline;
+            }
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+    background-color: rgba(46, 117, 182, 0.04);
+}
+
+.table tbody tr:hover {
+    background-color: rgba(46, 117, 182, 0.08) !important;
+}
+
+/* ── Buttons ─────────────────────────────────────────────────────────────── */
+.btn-primary {
+    background: linear-gradient(135deg, #1F3864, #2E75B6);
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: opacity 0.2s, transform 0.1s;
+}
+
+    .btn-primary:hover {
+        opacity: 0.9;
+        transform: translateY(-1px);
+        background: linear-gradient(135deg, #1F3864, #2E75B6);
+        border: none;
+    }
+
+.btn-success {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-danger {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-secondary {
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.8rem;
+}
+
+/* ── Forms ───────────────────────────────────────────────────────────────── */
+.form-control, .form-select {
+    border-radius: 6px;
+    border: 1px solid #cdd5e0;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+    .form-control:focus, .form-select:focus {
+        border-color: #2E75B6;
+        box-shadow: 0 0 0 0.2rem rgba(46,117,182,0.15);
+    }
+
+.form-label {
+    font-weight: 600;
+    color: #1F3864;
+    margin-bottom: 0.3rem;
+}
+
+/* ── Alerts ──────────────────────────────────────────────────────────────── */
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    border-radius: 8px;
+    border-left: 4px solid #28a745;
+}
+
+.alert-warning {
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+}
+
+.alert-danger {
+    border-radius: 8px;
+    border-left: 4px solid #dc3545;
+}
+
+/* ── Badges ──────────────────────────────────────────────────────────────── */
+.badge {
+    font-size: 0.7rem;
+    padding: 0.3em 0.6em;
+    border-radius: 12px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* ── Paging ──────────────────────────────────────────────────────────────── */
+.btn-group .btn {
+    border-radius: 6px !important;
+    margin: 0 2px;
+    font-weight: 500;
+}
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+footer {
+    background: linear-gradient(135deg, #1F3864 0%, #2E75B6 100%) !important;
+    color: rgba(255,255,255,0.8) !important;
+    margin-top: 3rem;
+    padding: 1rem 0;
+    font-size: 0.875rem;
+}
+
+    footer p {
+        margin-bottom: 0;
+        color: rgba(255,255,255,0.8);
+    }
+
+/* ── Main content spacing ────────────────────────────────────────────────── */
+main.container {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* ── Avatar in navbar ────────────────────────────────────────────────────── */
+img.rounded-circle {
+    border: 2px solid rgba(255,255,255,0.4);
+}
+
+/* ── Login / Register card ───────────────────────────────────────────────── */
+.auth-card {
+    max-width: 480px;
+    margin: 3rem auto;
+}
+
+/* ── Section headings in admin views ─────────────────────────────────────── */
+h6.bg-info {
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+}
+
+/* ── Delete warning box ──────────────────────────────────────────────────── */
+.alert-warning strong {
+    color: #856404;
+}
+
+/* ── DL definition list (details page) ──────────────────────────────────── */
+dt {
+    color: #1F3864;
+    font-weight: 600;
+}
+
+dd {
+    color: #444;
+}

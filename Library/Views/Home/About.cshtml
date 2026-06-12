@@ -1,0 +1,119 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+<!-- Hero -->
+<div class="hero-banner">
+    <h1><i class="fas fa-info-circle me-3"></i>About Library App</h1>
+    <p>An ASP.NET Core MVC 8 exam project demonstrating Identity, Repository Pattern, Paging, Tag Helpers and Role-based Authorization.</p>
+</div>
+
+<!-- Tech stack cards -->
+<div class="row g-4 mb-4">
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-database me-2"></i>Data Layer
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Entity Framework Core 8</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Repository Pattern + Wrapper</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Two separate DbContexts</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>QueryOptions with Paging</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Seed Data (Books + Identity)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-shield-alt me-2"></i>Identity & Security
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>ASP.NET Core Identity</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>AppUser extends IdentityUser</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Role-based Authorization</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom Password Validator</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Custom User Validator</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <i class="fas fa-code me-2"></i>MVC Features
+            </div>
+            <div class="card-body">
+                <ul class="list-unstyled mb-0">
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Profile Image Tag Helper</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>PageLink Tag Helper</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>RoleUsers Tag Helper</li>
+                    <li class="mb-2"><i class="fas fa-check text-success me-2"></i>ViewModels + Dropdown Lists</li>
+                    <li><i class="fas fa-check text-success me-2"></i>Sorting, Filtering & Paging</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Project info table -->
+<div class="card">
+    <div class="card-header">
+        <i class="fas fa-graduation-cap me-2"></i>Project Details
+    </div>
+    <div class="card-body p-0">
+        <table class="table table-bordered mb-0">
+            <tbody>
+                <tr>
+                    <th class="table-light" style="width:220px">
+                        <i class="fas fa-user me-2 text-primary"></i>Student
+                    </th>
+                    <td>AS Mbokazi</td>
+                </tr>
+                <tr>
+                    <th class="table-light">
+                        <i class="fas fa-id-card me-2 text-primary"></i>Student Number
+                    </th>
+                    <td>2025962636</td>
+                </tr>
+                <tr>
+                    <th class="table-light">
+                        <i class="fas fa-university me-2 text-primary"></i>Module
+                    </th>
+                    <td>CSIS/CSIQ3734 — Advanced Web Development- Internet Programming</td>
+                </tr>
+                <tr>
+                    <th class="table-light">
+                        <i class="fas fa-code-branch me-2 text-primary"></i>Framework
+                    </th>
+                    <td>ASP.NET Core MVC 8.0</td>
+                </tr>
+                <tr>
+                    <th class="table-light">
+                        <i class="fas fa-calendar me-2 text-primary"></i>Year
+                    </th>
+                    <td>@DateTime.Now.Year</td>
+                </tr>
+                <tr>
+                    <th class="table-light">
+                        <i class="fas fa-database me-2 text-primary"></i>Database
+                    </th>
+                    <td>SQL Server (LocalDB) — two databases</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+        <i class="fas fa-arrow-left me-1"></i>Back to Home
+    </a>
+    <a asp-controller="Book" asp-action="Index" class="btn btn-primary ms-2">
+        <i class="fas fa-book me-1"></i>Browse Books
+    </a>
+</div>

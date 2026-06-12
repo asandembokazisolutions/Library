@@ -1,0 +1,43 @@
+﻿@model Book
+@{
+    ViewBag.Title = "Delete Book";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <i class="fas fa-exclamation-triangle me-2"></i>Delete Book
+            </div>
+            <div class="card-body p-4">
+                <div class="alert alert-warning">
+                    Are you sure you want to permanently delete
+                    <strong>@Model.Title</strong> by @Model.Author?
+                    <br /><small class="text-danger">This action cannot be undone.</small>
+                </div>
+
+                <dl class="row small">
+                    <dt class="col-sm-4">Title</dt>
+                    <dd class="col-sm-8">@Model.Title</dd>
+                    <dt class="col-sm-4">Author</dt>
+                    <dd class="col-sm-8">@Model.Author</dd>
+                    <dt class="col-sm-4">Price</dt>
+                    <dd class="col-sm-8">@Model.Price.ToString("C")</dd>
+                </dl>
+
+                <form asp-action="Delete" method="post">
+                    <input type="hidden" asp-for="BookID" />
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-danger"
+                                onclick="return confirm('Permanently delete this book?')">
+                            <i class="fas fa-trash me-1"></i>Yes, Delete
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-times me-1"></i>Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

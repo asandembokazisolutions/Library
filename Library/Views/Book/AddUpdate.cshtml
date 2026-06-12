@@ -1,0 +1,69 @@
+﻿@model Book
+@{
+    ViewBag.Title = ViewBag.Action + " Book";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-@(ViewBag.Action == "Add" ? "plus" : "edit") me-2"></i>
+                @ViewBag.Action Book
+            </div>
+            <div class="card-body p-4">
+                <form asp-action="@(Model.BookID == 0 ? "Add" : "Update")" method="post">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger mb-3"></div>
+                    <input type="hidden" asp-for="BookID" />
+
+                    <div class="mb-3">
+                        <label asp-for="Title" class="form-label"></label>
+                        <input asp-for="Title" class="form-control"
+                               placeholder="Enter book title" />
+                        <span asp-validation-for="Title" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Author" class="form-label"></label>
+                        <input asp-for="Author" class="form-control"
+                               placeholder="Enter author name" />
+                        <span asp-validation-for="Author" class="text-danger small"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="YearPublished" class="form-label"></label>
+                            <input asp-for="YearPublished" class="form-control"
+                                   placeholder="e.g. 2024" />
+                            <span asp-validation-for="YearPublished"
+                                  class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label asp-for="Price" class="form-label"></label>
+                            <div class="input-group">
+                                <span class="input-group-text">R</span>
+                                <input asp-for="Price" class="form-control"
+                                       placeholder="0.00" />
+                            </div>
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label asp-for="GenreID" class="form-label">Genre</label>
+                        <select asp-for="GenreID" asp-items="@ViewBag.Genres"
+                                class="form-select">
+                            <option value="">-- Select a Genre --</option>
+                        </select>
+                        <span asp-validation-for="GenreID" class="text-danger small"></span>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save me-1"></i>@ViewBag.Action
+                        </button>
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-times me-1"></i>Cancel
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

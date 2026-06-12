@@ -1,0 +1,13 @@
+using Library.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
+
+namespace Library.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index() => View();
+
+        public IActionResult About() => View();
+    }
+}

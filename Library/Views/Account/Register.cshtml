@@ -1,0 +1,84 @@
+﻿@model RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="auth-card">
+    <div class="card">
+        <div class="card-header">
+            <i class="fas fa-user-plus me-2"></i>Create Account
+        </div>
+        <div class="card-body p-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+            <form asp-action="Register" asp-controller="Account"
+                  method="post" enctype="multipart/form-data">
+
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-user"></i>
+                        </span>
+                        <input asp-for="UserName" class="form-control"
+                               placeholder="Choose a username (lowercase)" />
+                    </div>
+                    <span asp-validation-for="UserName" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <input asp-for="Email" class="form-control"
+                               placeholder="your@email.com" />
+                    </div>
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input asp-for="Password" class="form-control"
+                               type="password" placeholder="Min 6 chars, include a digit" />
+                    </div>
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label"></label>
+                    <div class="input-group">
+                        <span class="input-group-text">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                        <input asp-for="ConfirmPassword" class="form-control"
+                               type="password" placeholder="Repeat password" />
+                    </div>
+                    <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-4">
+                    <label asp-for="AvatarImage" class="form-label">
+                        <i class="fas fa-image me-1"></i>Avatar Image (optional)
+                    </label>
+                    <input asp-for="AvatarImage" type="file"
+                           class="form-control" accept="image/*" />
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fas fa-user-plus me-2"></i>Register
+                    </button>
+                    <a asp-action="Login" class="btn btn-outline-secondary">
+                        <i class="fas fa-sign-in-alt me-2"></i>Already have an account? Log In
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

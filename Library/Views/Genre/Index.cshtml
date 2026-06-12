@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Genre>
+@{
+    ViewBag.Title = "Genre Management";
+}
+ 
+<h2>Genres</h2>
+ 
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success alert-dismissible">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        @TempData["Message"]
+    </div>
+}
+ 
+<table class="table table-bordered table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>Genre Name</th>
+            <th>Books</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var genre in Model)
+        {
+            <tr>
+                <td>@genre.GenreName</td>
+                <td>@genre.Books?.Count</td>
+                <td>
+                    <a asp-action="Update" asp-route-id="@genre.GenreID"
+                       class="btn btn-sm btn-primary">Update</a>
+                    <a asp-action="Delete" asp-route-id="@genre.GenreID"
+                       class="btn btn-sm btn-danger"
+                       onclick="return confirm('Delete genre @genre.GenreName?')">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+ 
+<a asp-action="Add" class="btn btn-success">Add New Genre</a>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary ms-2">Back to Home</a>

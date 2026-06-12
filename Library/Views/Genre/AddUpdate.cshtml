@@ -1,0 +1,20 @@
+﻿@model Genre
+@{
+    ViewBag.Title = ViewBag.Action + " Genre";
+}
+ 
+<h2>@ViewBag.Action Genre</h2>
+ 
+<form asp-action="Update" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+    <input type="hidden" asp-for="GenreID" />
+ 
+    <div class="mb-3">
+        <label asp-for="GenreName" class="form-label"></label>
+        <input asp-for="GenreName" class="form-control" />
+        <span asp-validation-for="GenreName" class="text-danger"></span>
+    </div>
+ 
+    <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+    <a asp-action="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>
