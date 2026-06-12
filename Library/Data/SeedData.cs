@@ -41,4 +41,11 @@ namespace Library.Data
             }
         }
     }
+}                    new Book { Title = "Guns, Germs, and Steel", Author = "Jared Diamond", YearPublished = 1997, Price = 17.50m, GenreID = 4 },
+                    new Book { Title = "The History of the Ancient World", Author = "Susan Wise Bauer", YearPublished = 2007, Price = 20.00m, GenreID = 4 }
+                );
+                context.SaveChanges();
+            }
+        }
+    }
 }
