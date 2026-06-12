@@ -28,6 +28,7 @@ jobs:
 
     - name: Generate migrations
       run: |
+        dotnet build Library/Library.csproj --verbosity detailed
         dotnet ef migrations add Init --context AppDbContext --project Library/Library.csproj
         dotnet ef migrations add Init --context AppIdentityDbContext --project Library/Library.csproj
 
